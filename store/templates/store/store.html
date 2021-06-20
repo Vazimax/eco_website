@@ -1,0 +1,89 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %} Store page {% endblock %}
+
+{% block content %}
+
+<!-- Categories -->
+<main>
+  <br>
+    <section class="advert section">
+      <div class="advert-center container">
+        <div class="advert-box">
+          <div class="dotted">
+            <div class="content">
+                <h2>sweets</h2>
+              <br>
+              <a href="{% url 'sweets' %}" class="btn" style="background-color: #22bb33;">Check</a>
+            </div>
+          </div>
+          <img src="{% static 'images/sweet.jpg' %}" alt="">
+        </div>
+
+        <div class="advert-box">
+          <div class="dotted">
+            <div class="content">
+              <h2>
+                Cakes
+              </h2>
+              <br>
+              <a href="{% url 'cakes' %}" class="btn" style="background-color: #22bb33;">Check</a>
+            </div>
+          </div>
+          <img src="{% static 'images/cake.jpg' %}" alt="">
+        </div>
+
+        <div class="advert-box">
+          <div class="dotted">
+            <div class="content">
+              <h2>
+                Chocolates
+              </h2>
+              <br>
+              <a href="{% url 'chocolates' %}" class="btn" style="background-color: #22bb33;">Check</a>
+            </div>
+          </div>
+          <img src="{% static 'images/chocolate.jpg' %}" alt="">
+        </div>
+      </div>
+</section>
+
+<!-- Best Product -->
+
+<section class="section featured">
+    <div class="title">
+      <h1>Featured Products</h1>
+    </div>
+
+    <div class="product-center container">
+      {% for product in products %}
+        <div class="product">
+          <div class="product-header">
+            <img src="{{product.imageURL}}" alt="">
+            <ul class="icons">
+              <span><i class="bx bx-heart"></i></span>
+              <span><i data-product="{{product.id}}" data-action="add" class="bx bx-shopping-bag  add-btn update-cart"></i></span>
+              <span><a href="{% url 'product_detail' product.id %}" class="bx bx-search"></a></span>
+            </ul>
+          </div>
+          <div class="product-footer">
+            <a href="{% url 'product_detail' product.id %}">
+              <h3>{{ product.name }}</h3>
+            </a>
+            <div class="rating">
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+              <i class="bx bxs-star"></i>
+            </div>
+            <h4 class="price">{{ product.price|floatformat:2 }} DH</h4>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

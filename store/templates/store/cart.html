@@ -1,0 +1,57 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %} Store page {% endblock %}
+
+{% block content %}
+
+  <div class="container-md cart" style="background-color:beige;">
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+      {% for item in items %}
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img src="{{item.product.imageURL}}" alt="">
+              <div>
+                <p>{{item.product.name}}</p>
+                <span><b>Price: </b>{{item.product.price|floatformat:2 }}DH</span>
+                <br/>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="quantity">{{item.quantity}}</p>
+            <!-- <div class="quantity">
+              <img class="chg-quantity update-cart" data-product="{{item.product.id}}" data-action="add" src="{% static 'images/arrow2.png' %}">
+              <img class="chg-quantity update-cart" data-product="{{item.product.id}}" data-action="remove" src="{% static 'images/arrow1.png' %}">
+            </div> -->
+          </td>
+          <td>{{item.get_total}}DH</td>
+        </tr>
+      {% endfor %}
+
+    </table>
+
+    <div class="total-price">
+      <table>
+        <tr>
+          <td><strong>Items</strong></td>
+          <td>{{order.get_cart_items}}</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td>{{order.get_cart_total|floatformat:2}} DH</td>
+        </tr>
+      </table>
+      <br>
+      <a href="{% url 'checkout' %}" class="checkout btn" style="background-color: #22bb33; width: 100px;">Checkout</a>
+    </div>
+  </div>
+
+{% endblock %}

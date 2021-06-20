@@ -1,0 +1,41 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %} sweets page {% endblock %}
+
+{% block content %}
+
+<section class="section all-products" id="products">
+    <div class="top container">
+        <h1>Cakes</h1>
+    </div>
+
+    <div class="product-center container">
+        {% for product in products %}
+        <div class="product">
+            <div class="product-header">
+                <img src="{{ product.imageURL}}" alt="">
+                <ul class="icons">
+                    <span><i class="bx bx-heart"></i></span>
+                    <a href=""> <span><i data-product="{{product.id}}" data-action="add" class="bx bx-shopping-bag  add-btn update-cart"></i></span>
+                    </a>
+                    <span><a href="{% url 'product_detail' product.id %}" class="bx bx-search"></a></span>
+                </ul>
+            </div>
+            <div class="product-footer">
+                <a href="">
+                    <h3>{{product.name}}</h3>
+                </a>
+                <h4 class="price">{{product.price}} DH</h4>
+                
+            </div>  
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% include 'store/pagination.html' with page=products %}
+
+
+{% endblock %}

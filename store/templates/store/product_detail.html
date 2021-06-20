@@ -1,0 +1,138 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block title %} {{product.name}} {% endblock %}
+
+{% block content %}
+<section class="section product-detail">
+    <div class="details container-md">
+      <div class="left">
+        <div class="main">
+          <img src="{{product.imageURL}}" alt="">
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail">
+            <img src="" alt="">
+          </div>
+          <div class="thumbnail">
+            <img src="" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <span>{{product.category}}</span>
+        <h1>{{product.name}}</h1>
+        <hr>
+        <br>
+        <h3> <b>The price :</b> ${{product.price}} </h3>
+        <a href="{% url 'store' %}" data-product="{{product.id}}"  data-action="add" class="addCart btn  add-btn update-cart" style="width: 105px;">Add To Cart</a>
+        <br>
+        <br>
+        <br>
+
+        <h3><b>Product Detail</b></h3>
+        <p>{{product.description}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="section featured">
+    <div class="top container">
+      <h1>Related Products</h1>
+      <a href="{% url 'store' %}" class="view-more">View more</a>
+    </div>
+
+    <div class="product-center container">
+      <div class="product">
+        <div class="product-header">
+          <img src="" alt="">
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-header">
+          <img src="" alt="">
+
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><i class="bx bx-search"></i></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <a href="#"><h3>Boy’s T-Shirt</h3></a>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">$50</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
